@@ -76,5 +76,6 @@ Entre os materiais incluídos estão:
 - Plano de Testes
 - Cenários de Teste estruturados em BDD
 - Evidências e análises dos testes realizados
+- Gif da automação sendo executada
 
 Esses documentos complementam os testes automatizados implementados em Cypress e demonstram o processo completo de validação da aplicação.
