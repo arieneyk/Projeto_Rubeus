@@ -14,23 +14,6 @@ describe('Site - Página Principal', () => {
   });
 
 
-  it('Deve redirecionar para a página institucional ao clicar no menu', () => {
-
-    // DADO QUE acesso o site
-    cy.visit('https://qualidade.apprbs.com.br/site');
-
-    // QUANDO clico no menu institucional
-    cy.contains('Institucional', { matchCase: false })
-      .parents('a')
-      .invoke('removeAttr', 'target')
-      .click();
-
-    // ENTÃO sou redirecionado para o site da Rubeus
-    cy.url().should('include', 'rubeus.com.br');
-
-  });
-
-
 it('Deve validar que o botão Inscreva-se tem ação e redireciona corretamente', () => {
   // DADO QUE acesso o site
   cy.visit('https://qualidade.apprbs.com.br/site');

@@ -4,31 +4,31 @@ Cypress.on('uncaught:exception', () => {
 
 describe('Página Certificação', () => {
 
-  it('Deve carregar a página de certificação', () => {
 
-    cy.visit('https://qualidade.apprbs.com.br/certificacao')
+  it('Deve carregar a página de certificação com sucesso', () => {
+    // DADO QUE acesso a URL de certificação
+    cy.visit('https://qualidade.apprbs.com.br/certificacao');
 
-    // valida que a página carregou
-    cy.url().should('include', '/certificacao')
+    // ENTÃO a página deve ser carregada corretamente
+    cy.url().should('include', '/certificacao');
+    cy.get('body').should('be.visible');
+  });
 
-    // valida que o botão existe
-    cy.contains('Quero me certificar')
-      .should('be.visible')
+  it('Ao clicar no botão Quero me certificar, deve redirecionar para o site da Rubeus', () => {
+    // DADO QUE estou na página de certificação
+    cy.visit('https://qualidade.apprbs.com.br/certificacao');
 
-  })
-
-  it('Deve clicar no botão e redirecionar para o site da Rubeus', () => {
-
-    cy.visit('https://qualidade.apprbs.com.br/certificacao')
-
+    // QUANDO clico no botão "Quero me certificar"
+    // Removemos o 'target' para garantir que o redirecionamento ocorra na mesma aba
     cy.contains('Quero me certificar')
       .should('be.visible')
       .invoke('removeAttr', 'target')
-      .click()
+      .click();
 
-    cy.url().should('include', 'rubeus.com.br')
+    // ENTÃO a URL deve mudar para o domínio da Rubeus, comprovando a ação do botão
+    cy.url().should('include', 'rubeus.com.br');
+  });
 
-  })
 
    it('Deve redirecionar para a página de dados ao clicar em Saiba Mais', () => {
     // DADO QUE acessei a página inicial
@@ -49,8 +49,7 @@ describe('Página Certificação', () => {
     
 })
 
-describe('Validação do Formulário de Contato', () => {
-  
+
   beforeEach(() => {
     cy.visit('https://qualidade.apprbs.com.br/certificacao'); 
   });
@@ -92,4 +91,3 @@ describe('Validação do Formulário de Contato', () => {
     // Verifica se o campo truncou o valor (ex: limite de 11 dígitos)
     cy.get('input[name="telefone"]').should('not.have.value', telLongo);
   });
-});
