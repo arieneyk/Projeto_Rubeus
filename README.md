@@ -1,9 +1,9 @@
-# Testes Automatizados – Qualidade APPRBS
+# Testes Automatizados 
 
-Este repositório contém testes automatizados desenvolvidos para validar funcionalidades do site **Qualidade APPRBS**, com foco nas páginas:
+Este repositório contém testes automatizados desenvolvidos para validar funcionalidades do site  nas páginas:
 
-- Página inicial do site
-- Página de certificação
+- Página de Certificação
+- Página de Graduação
 
 Os testes foram implementados utilizando **Cypress**, com o objetivo de simular o comportamento real do usuário e garantir que os principais fluxos da aplicação funcionem corretamente.
 
@@ -35,10 +35,15 @@ O objetivo deste projeto é demonstrar habilidades em **Qualidade de Software (Q
 cypress
  └─ e2e
      ├─ certificacao.cy.js
-     └─ site.cy.js
+   
+
+cypress
+ └─ e2e
+     ├─ graducacao.cy.js
+   
 ```
 
-Cada arquivo contém cenários de teste automatizados para uma funcionalidade específica do sistema.
+Cada arquivo contém cenários de dos respectivos sites
 
 ---
 
@@ -53,9 +58,6 @@ Cada arquivo contém cenários de teste automatizados para uma funcionalidade es
 - Validação de campos obrigatórios
 - Validação de formato de e-mail inválido
 - Validação de limite de caracteres no campo telefone
-
-### Página Inicial do Site
-
 - Carregamento da página principal
 - Validação de elementos visíveis na interface
 - Redirecionamento do menu institucional
